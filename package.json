@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-midi-plugin-import",
-  "version": "0.0.45",
+  "version": "0.0.46",
   "description": "the plugin for fix paths of imports ",
   "keywords": [
     "eslint",
