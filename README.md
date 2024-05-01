@@ -39,6 +39,16 @@ Then configure the rules you want to use under the rules section.
 }
 ```
 
+If you use an absolute path alias, you need to include the "aliasAbsolutePath" parameter and the alias name.
+
+```json
+{
+    "rules": {
+        "midi-plugin-import/rule-name": [2, {"aliasAbsolutePath": "@"}]
+    }
+}
+```
+
 
 
 ## Configurations
