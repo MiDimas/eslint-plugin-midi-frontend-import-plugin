@@ -41,6 +41,25 @@ ruleTester.run("public-api-imports", rule, {
         aliasAbsolutePath: '@'
       }]
     },
+    {
+      name: 'correct import from testing public API',
+      code: "import {Component} from '@/entities/Article/test'",
+      filename: 'C:/User/Desktop/project/src/features/ArticleDetails/test.test.ts',
+      options: [{
+        aliasAbsolutePath: '@',
+        testFilePatterns: ['**/*.test.ts', '**/*.test.tsx'],
+        testPublicName: 'test'
+      }]
+    },
+    {
+      name: 'correct import from testing public API without alias',
+      code: "import {Component} from 'entities/Article/test'",
+      filename: 'C:/User/Desktop/project/src/features/ArticleDetails/test.test.ts',
+      options: [{
+        testFilePatterns: ['**/*.test.ts', '**/*.test.tsx'],
+        testPublicName: 'test'
+      }]
+    }
   ],
 
   invalid: [
@@ -59,5 +78,26 @@ ruleTester.run("public-api-imports", rule, {
       }],
       output: "import {Component} from '@/entities/Article';"
     },
+    {
+      name: "incorrect use testing public api",
+      filename: 'C:/User/Desktop/project/src/entities/Article/ui/article.ts',
+      code: "import {Component} from '@/entities/Article/testing';",
+      errors: [{ message: "Импорт из testing public API может осуществляться только из тестовых файлов"}],
+      options: [{
+        aliasAbsolutePath: '@'
+      }],
+      output: "import {Component} from '@/entities/Article';"
+    },
+    {
+      name: "incorrect import for test",
+      filename: 'C:/User/Desktop/project/src/entities/Article/ui/article.test.ts',
+      code: "import {Component} from '@/entities/Article/testing/test.ts';",
+      errors: [{ message: "Импорт для тестов дополнительно может осуществляться только из тестового public API"}],
+      options: [{
+        aliasAbsolutePath: '@',
+        testFilePatterns: ['**/*.test.ts', '**/*.test.tsx']
+      }],
+      output: "import {Component} from '@/entities/Article/testing';"
+    }
   ],
 });
