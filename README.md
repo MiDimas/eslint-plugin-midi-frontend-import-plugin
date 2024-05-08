@@ -60,5 +60,10 @@ If you use an absolute path alias, you need to include the "aliasAbsolutePath" p
 }
 ```
 
+## Rules
 
+The rule for checking inside modules for relative imports
+[path-check](./docs/rules/path-check.md);
 
+The rule for checking imports from the public API
+[public-api-imports](./docs/rules/public-api-imports.md);

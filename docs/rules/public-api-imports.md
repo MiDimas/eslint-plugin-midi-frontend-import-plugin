@@ -1,35 +1,62 @@
 # The rule prohibits the use of components not from public API (`public-api-imports`)
 
-Please describe the origin of the rule here.
 
 ## Rule Details
 
-This rule aims to...
+This rule aims to eliminate imports from the internals of modules,
+in order to maintain the encapsulation of modules.
 
 Examples of **incorrect** code for this rule:
 
 ```js
+// without alias
+import {Component} from 'entities/Article/ui/Components/Component';
 
-// fill me in
+// with alias
+import {Component} from '@/entities/Article/ui/Components/Component';
 
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
+// without alias
+import {Component} from 'entities/Article';
+// with alias
+import {Component} from '@/entities/Article';
 
-// fill me in
 
 ```
 
 ### Options
 
-If there are any options, describe them here. Otherwise, delete this section.
+#### aliasAbsolutePath
+This option adds the alias and has a type: string.
+
+#### testFilePatterns
+This option adds patterns for the test file, 
+which will use imports from the testing public API.  
+Has a type: array of strings
+```js
+{
+    testFilePatterns: ['**/*.test.ts', '**/*.test.tsx']
+}
+```
+
+#### testPublicName
+
+This option changes name of the testing public API.  
+Default name: 'testing'  
+Has a type: string
+```js 
+    {
+        testPublicName: 'test'
+    }
+    
+    // from the test file, it will be correct
+    import { Component } from "entities/Article/test";
+```
 
 ## When Not To Use It
 
-Give a short description of when it would be appropriate to turn off this rule.
-
-## Further Reading
-
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+When you don't use module architecture.
