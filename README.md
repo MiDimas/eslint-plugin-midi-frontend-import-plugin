@@ -62,8 +62,14 @@ If you use an absolute path alias, you need to include the "aliasAbsolutePath" p
 
 ## Rules
 
-The rule for checking inside modules for relative imports
-[path-check](./docs/rules/path-check.md);
+<!-- begin auto-generated rules list -->
 
-The rule for checking imports from the public API
-[public-api-imports](./docs/rules/public-api-imports.md);
+🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
+
+| Name                                                   | Description                                                  | 🔧 |
+| :----------------------------------------------------- | :----------------------------------------------------------- | :- |
+| [path-check](docs/rules/path-check.md)                 | checking correct path for feature sliced design              | 🔧 |
+| [public-api-imports](docs/rules/public-api-imports.md) | The rule prohibits the use of components not from public API | 🔧 |
+
+<!-- end auto-generated rules list -->
+

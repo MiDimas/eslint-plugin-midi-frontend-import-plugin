@@ -1,4 +1,8 @@
-# The rule prohibits the use of components not from public API (`public-api-imports`)
+# The rule prohibits the use of components not from public API (`midi-plugin-import/public-api-imports`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 
 ## Rule Details
