@@ -4,6 +4,7 @@
 
 <!-- end auto-generated rule header -->
 
+[Back to main doc](../../README.md)
 
 ## Rule Details
 

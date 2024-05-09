@@ -4,7 +4,7 @@
 
 <!-- end auto-generated rule header -->
 
-
+[Back to main doc](../../README.md)
 
 ## Rule Details
 
@@ -15,7 +15,11 @@ Examples of **incorrect** code for this rule:
 
 ```js
 
-// fill me in
+// in file /src/entities/Article (public API - file) without alias
+import { ArticleCard } from 'entities/Article/ui/ArticleCard/ArticleCard'
+
+//  in file /src/entities/Article (public API - file) with alias
+import { ArticleCard } from '@/entities/Article/ui/ArticleCard/ArticleCard'
 
 ```
 
@@ -23,20 +27,24 @@ Examples of **correct** code for this rule:
 
 ```js
 
-// fill me in
+// in file /src/entities/Article (public API - file) without alias
+import { ArticleCard } from './ui/ArticleCard/ArticleCard'
+
+//  in file /src/entities/Article (public API - file) with alias
+import { ArticleCard } from './ui/ArticleCard/ArticleCard'
 
 ```
 
 ### Options
 
-#### #### aliasAbsolutePath
+#### aliasAbsolutePath
 This option adds the alias and has a type: string.
 
 ```js
 {
     aliasAbsolutePath: '@'
 }
-// This import will be correct
+// This import will be correct if it's be absolute
 import {Component} from "@/entities/Article";
 ```
 
