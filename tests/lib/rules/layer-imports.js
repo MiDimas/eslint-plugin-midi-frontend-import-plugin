@@ -16,7 +16,9 @@ const rule = require("../../../lib/rules/layer-imports"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+  parserOptions: {ecmaVersion: 6, sourceType: 'module'}
+});
 ruleTester.run("layer-imports", rule, {
   valid: [
     // give me some code that won't trigger a warning
@@ -24,8 +26,9 @@ ruleTester.run("layer-imports", rule, {
 
   invalid: [
     {
-      code: "",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
+      code: "import { ArticleCard } from 'features/User/ui/ArticleCard/ArticleCard'",
+      filename: 'C:/User/Desktop/project/src/entities/Article',
+      errors: [{ message: "Слой может импортировать только нижележащие слои"}],
     },
   ],
 });
