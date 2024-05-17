@@ -21,14 +21,35 @@ const ruleTester = new RuleTester({
 });
 ruleTester.run("layer-imports", rule, {
   valid: [
-    // give me some code that won't trigger a warning
+    {
+      name: "entities in entities",
+      code: "import { ArticleCard } from 'entities/User/ui/UserCard/UserCard'",
+      filename: 'C:/User/Desktop/project/src/entities/Article',
+      errors: [{ message: "Слой может импортировать только нижележащие слои"}],
+    },
   ],
 
   invalid: [
     {
-      code: "import { ArticleCard } from 'features/User/ui/ArticleCard/ArticleCard'",
+      name: "features in entities",
+      code: "import { ArticleCard } from 'features/News/ui/ArticleCard/ArticleCard'",
       filename: 'C:/User/Desktop/project/src/entities/Article',
       errors: [{ message: "Слой может импортировать только нижележащие слои"}],
+    },
+    {
+      name: "entities in shared",
+      code: "import { UserCard } from 'entities/User/ui/UserCard/UserCard'",
+      filename: 'C:/User/Desktop/project/src/shared/input',
+      errors: [{ message: "Слой может импортировать только нижележащие слои"}],
+    },
+    {
+      name: "widget in features with alias",
+      code: "import { ArticleViewer } from '@/widget/ArticleViewer/ui/ArticleViewer/ArticleViewer'",
+      filename: 'C:/User/Desktop/project/src/features/Article',
+      errors: [{ message: "Слой может импортировать только нижележащие слои"}],
+      options: [{
+        aliasAbsolutePath: '@'
+      }]
     },
   ],
 });
