@@ -1,35 +1,55 @@
-# restriction on importing overlying layers into underlying ones (`layer-imports`)
+# Restriction on importing overlying layers into underlying ones (`midi-plugin-import/layer-imports`)
 
-Please describe the origin of the rule here.
+<!-- end auto-generated rule header -->
+
 
 ## Rule Details
 
-This rule aims to...
+This rule aims to eliminate imports from the overlying layers
 
 Examples of **incorrect** code for this rule:
 
 ```js
-
-// fill me in
+// from C:/User/Desktop/project/src/entities/Article
+import { ArticleCard } from 'features/News/ui/ArticleCard/ArticleCard'
 
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-
-// fill me in
+// from C:/User/Desktop/project/src/entities/Article
+import { ArticleCard } from 'entities/User/ui/UserCard/UserCard'
 
 ```
 
 ### Options
 
-If there are any options, describe them here. Otherwise, delete this section.
+
+#### aliasAbsolutePath
+This option adds the alias and has a type: string.
+
+```js
+{
+    aliasAbsolutePath: '@'
+}
+// from C:/User/Desktop/project/src/entities/Article
+// This import will be correct
+import {Component} from "@/entities/User";
+```
+
+#### ignorePatterns
+This option adds the patterns to ignore checking and has a type: string[].
+
+```js
+{
+    ignorePatterns: ["**.*.test.ts", "**.*.test.tsx"]
+}
+// from C:/User/Desktop/project/src/features/ArticleCard
+// This import will be correct
+import {Component} from "@/widgets/componentWidget/component.test.ts";
+```
 
 ## When Not To Use It
 
-Give a short description of when it would be appropriate to turn off this rule.
-
-## Further Reading
-
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+If you didn't use Featured Slice Design  methodology 

@@ -50,6 +50,16 @@ This rule is necessary to control the production of absolute imports from the pu
 }
 ```
 
+This rule is necessary to control the production of imports from the underlying layers.
+(This rule doesn't have a fixer.) 
+```json
+{
+    "rules": {
+        "midi-plugin-import/layer-imports": 2
+    }
+}
+```
+
 If you use an absolute path alias, you need to include the "aliasAbsolutePath" parameter and the alias name.
 
 ```json
@@ -66,10 +76,11 @@ If you use an absolute path alias, you need to include the "aliasAbsolutePath" p
 
 🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
 
-| Name                                                   | Description                                                  | 🔧 |
-| :----------------------------------------------------- | :----------------------------------------------------------- | :- |
-| [path-check](docs/rules/path-check.md)                 | checking correct path for feature sliced design              | 🔧 |
-| [public-api-imports](docs/rules/public-api-imports.md) | The rule prohibits the use of components not from public API | 🔧 |
+| Name                                                   | Description                                                    | 🔧 |
+| :----------------------------------------------------- | :------------------------------------------------------------- | :- |
+| [layer-imports](docs/rules/layer-imports.md)           | restriction on importing overlying layers into underlying ones |    |
+| [path-check](docs/rules/path-check.md)                 | checking correct path for feature sliced design                | 🔧 |
+| [public-api-imports](docs/rules/public-api-imports.md) | The rule prohibits the use of components not from public API   | 🔧 |
 
 <!-- end auto-generated rules list -->
 
