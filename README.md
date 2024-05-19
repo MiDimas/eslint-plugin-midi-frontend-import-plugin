@@ -2,6 +2,8 @@
 
 the plugin for fix paths of imports 
 
+### [page on GitHub](https://github.com/MiDimas/eslint-plugin-midi-frontend-import-plugin)  
+
 ## Installation
 
 You'll first need to install [ESLint](https://eslint.org/):
@@ -78,9 +80,9 @@ If you use an absolute path alias, you need to include the "aliasAbsolutePath" p
 
 | Name                                                   | Description                                                    | 🔧 |
 | :----------------------------------------------------- | :------------------------------------------------------------- | :- |
-| [layer-imports](docs/rules/layer-imports.md)           | restriction on importing overlying layers into underlying ones |    |
-| [path-check](docs/rules/path-check.md)                 | checking correct path for feature sliced design                | 🔧 |
-| [public-api-imports](docs/rules/public-api-imports.md) | The rule prohibits the use of components not from public API   | 🔧 |
+| [layer-imports](https://github.com/MiDimas/eslint-plugin-midi-frontend-import-plugin/blob/main/docs/rules/layer-imports.md)           | restriction on importing overlying layers into underlying ones |    |
+| [path-check](https://github.com/MiDimas/eslint-plugin-midi-frontend-import-plugin/blob/main/docs/rules/path-check.md)                 | checking correct path for feature sliced design                | 🔧 |
+| [public-api-imports](https://github.com/MiDimas/eslint-plugin-midi-frontend-import-plugin/blob/main/docs/rules/public-api-imports.md) | The rule prohibits the use of components not from public API   | 🔧 |
 
 <!-- end auto-generated rules list -->
 
