@@ -25,7 +25,11 @@ ruleTester.run("layer-imports", rule, {
       name: "entities in entities",
       code: "import { ArticleCard } from 'entities/User/ui/UserCard/UserCard'",
       filename: 'C:/User/Desktop/project/src/entities/Article',
-      errors: [{ message: "Слой может импортировать только нижележащие слои"}],
+    },
+    {
+      name: "outside modules",
+      code: "import { useEffect } from 'react'",
+      filename: 'C:/User/Desktop/project/src/entities/Article',
     },
   ],
 
@@ -44,7 +48,7 @@ ruleTester.run("layer-imports", rule, {
     },
     {
       name: "widget in features with alias",
-      code: "import { ArticleViewer } from '@/widget/ArticleViewer/ui/ArticleViewer/ArticleViewer'",
+      code: "import { ArticleViewer } from '@/widgets/ArticleViewer/ui/ArticleViewer/ArticleViewer'",
       filename: 'C:/User/Desktop/project/src/features/Article',
       errors: [{ message: "Слой может импортировать только нижележащие слои"}],
       options: [{
